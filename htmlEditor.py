@@ -1,6 +1,5 @@
-{% extends "Map.html" %}
-{% block top_row %}
-
+from bs4 import BeautifulSoup
+header="""
     <div class="container-fluid" style="padding: 0">
         <div class="rows">
             <div class="col-md-11">
@@ -17,5 +16,13 @@
 
             </div>
         </div>
-    </div>
-{% endblock %}
+    </div>"""
+
+def edit_map(path, header):
+    with open(path, "r") as file:
+        lul = file.read()
+        
+    soup = BeautifulSoup(lul)
+    soup.body.insert(0, BeautifulSoup(header))
+    with open("templates\\Map.html", 'w') as file:
+        file.write(str(soup))
