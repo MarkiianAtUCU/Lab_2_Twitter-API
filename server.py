@@ -13,7 +13,7 @@ def main():
 def ShowMap():
     name = request.form['inputName']
     if name:
-        MapGenerator.generate_map('templates\\Map.html')
+        MapGenerator.generate_map('templates\\Map.html', name)
         htmlEditor.edit_map('templates\\Map.html', htmlEditor.header)
         return render_template('Map.html', User="@"+name)
 

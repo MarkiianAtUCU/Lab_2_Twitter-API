@@ -14,10 +14,6 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-# while True:
-#     print('')
-#     acct = input('Enter Twitter Account:')
-
 
 def get_user_json(acct):
     TWITTER_URL = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
@@ -29,40 +25,36 @@ def get_user_json(acct):
     return js
 
 
-def get_user_friends_json(acct):
+def get_user_friends_json(acct, num):
     TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
     url = twurl.augment(TWITTER_URL,
-                        {'screen_name': acct, 'count': '47'})
+                        {'screen_name': acct, 'count': str(num)})
     connection = urllib.request.urlopen(url, context=ctx)
     data = connection.read().decode()
     js = json.loads(data)
     return js
 
 
-def json_name(js):
-    return js[0]['user']['name']
+def json_get_user_info(acct):
+    js = get_user_json(acct)
+    return (js[0]['user']['location'],
+            js[0]['user']['profile_image_url_https'],
+            js[0]['user']['name'],
+            js[0]['user']['friends_count'],
+            js[0]['user']['followers_count'],
+            js[0]['user']['created_at'],
+            js[0]['user']['lang'])
 
 
-def json_location(js):
-    return js[0]['user']['location']
-
-
-def json_friends_count(js):
-    return js[0]['user']['friends_count']
-
-
-def json_followers_count(js):
-    return js[0]['user']['followers_count']
-
-
-def json_profile_image(js):
-    return js[0]['user']['profile_image_url_https']
-
-def json_lang(js):
-    return js[0]['user']['lang']
-
-def json_created_at(js):
-    return js[0]['user']['created_at']
-js=get_user_friends_json('elonmusk')
-for i in range(47):
-    print(js['users'][i]['location'])
+def json_get_user_friend_info(acct, num):
+    js = get_user_friends_json(acct, num)
+    res = []
+    for i in range(num):
+        res.append((js['users'][i]['location'],
+                    js['users'][i]['profile_image_url_https'],
+                    js['users'][i]['name'],
+                    js['users'][i]['friends_count'],
+                    js['users'][i]['followers_count'],
+                    js['users'][i]['created_at'],
+                    js['users'][i]['lang']))
+    return res
