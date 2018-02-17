@@ -1,6 +1,7 @@
 import geocoder
 from geopy.geocoders import Nominatim
 from geopy import ArcGIS
+import random
 
 
 def get_geo_position_geolocator(loc):
@@ -36,3 +37,8 @@ def get_geo_position_google(loc, api_key):
     """
     g = geocoder.google(loc, key=api_key)
     return g.latlng
+
+def random_coords():
+    latitude = random.randint(-90, 90)+random.uniform(0, 1)
+    longitude = random.randint(-180, 180)+random.uniform(0, 1)
+    return (latitude,longitude)

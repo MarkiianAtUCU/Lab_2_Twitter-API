@@ -22,34 +22,46 @@ def add_marker(group, coords, name):
 
 
 def create_popup(js):
-    res = """<img src="{}"/>\n
-    Name: {}\n
-    Location: {}\n
-    Lang: {}\n
-    Friends: {}\n
-    Followers: {}\n
-    Created at: {}\n
+    res = """<img src="{}"/><br>
+    Name: {}<br>
+    Location: {}<br>
+    Lang: {}<br>
+    Friends: {}<br>
+    Followers: {}<br>
+    Created at: {}<br>
     """.format(js[1], js[2], js[0], js[6], js[3], js[4], js[5])
-    return res
+    return res.replace("'","`")
+
+
+def add_line(group, coord_list):
+    folium.PolyLine(locations=coord_list, weight=2).add_to(group)
 
 
 def generate_map(path, acct):
     f_map = folium.Map()
+
     user = twitterAPI.json_get_user_info(acct)
     num = user[3]
+
     if user[0]:
-        add_marker(f_map, geoloc.get_geo_position_ArcGIS(
-            user[0]), create_popup(user))
+        user_coords = geoloc.get_geo_position_ArcGIS(user[0])
+        add_marker(f_map, user_coords, create_popup(user))
     else:
-        add_marker(f_map, [0, 0], user[2])
+        user_coords = geoloc.random_coords()
+        add_marker(f_map, user_coords, create_popup(user))
 
     friends = twitterAPI.json_get_user_friend_info(acct, num)
     for i in friends:
         if i[0]:
-            add_marker(f_map, geoloc.get_geo_position_ArcGIS(
-                i[0]), create_popup(i))
+            friend_coord = geoloc.get_geo_position_ArcGIS(i[0])
+            add_marker(f_map, friend_coord, create_popup(i))
+        else:
+            friend_coord = geoloc.random_coords()
+            add_marker(f_map, friend_coord, create_popup(i))
+        add_line(f_map, [user_coords, friend_coord])
 
     f_map.save(path)
+    return 0
 
 
-generate_map("Lul.html", "elonmusk")
+# generate_map("Lul.html", "elonmusk")
