@@ -4,21 +4,20 @@ import geoloc
 import twitterAPI
 
 
-def add_marker(group, coords, name):
+def add_marker(group, coords, name, status="OK"):
     """
     (FeatureGroup, [latitude, longitude], str) -> None
 
     Function adds folium marker to folium.FeatureGroup() or folium.Map()
     """
-    color_list = ['red', 'blue', 'green', 'purple', 'orange', 'darkred',
-                  'lightred', 'beige', 'darkblue', 'darkgreen', 'cadetblue',
-                  'darkpurple', 'pink', 'lightblue', 'lightgreen',
-                  'gray', 'black', 'lightgray']
-    folium.Marker(
-        location=coords,
-        popup=name,
-        icon=folium.Icon(color=random.choice(color_list), icon='film')
-    ).add_to(group)
+    if status == "OK":
+        icon = folium.Icon(color='green', icon='ok-circle')
+    elif status == "POINT":
+        icon = folium.Icon(color='orange', icon='record')
+    else:
+        icon = folium.Icon(color='red', icon='remove-circle')
+
+    folium.Marker(location=coords, popup=name, icon=icon).add_to(group)
 
 
 def create_popup(js):
@@ -30,7 +29,7 @@ def create_popup(js):
     Followers: {}<br>
     Created at: {}<br>
     """.format(js[1], js[2], js[0], js[6], js[3], js[4], js[5])
-    return res.replace("'","`")
+    return res.replace("'", "`")
 
 
 def add_line(group, coord_list):
@@ -45,23 +44,25 @@ def generate_map(path, acct):
 
     if user[0]:
         user_coords = geoloc.get_geo_position_ArcGIS(user[0])
-        add_marker(f_map, user_coords, create_popup(user))
+        add_marker(f_map, user_coords, create_popup(user), status="POINT")
     else:
         user_coords = geoloc.random_coords()
-        add_marker(f_map, user_coords, create_popup(user))
+        add_marker(f_map, user_coords, create_popup(user), status="POINT")
 
     friends = twitterAPI.json_get_user_friend_info(acct, num)
+    x = 0
     for i in friends:
         if i[0]:
             friend_coord = geoloc.get_geo_position_ArcGIS(i[0])
-            add_marker(f_map, friend_coord, create_popup(i))
+            if friend_coord:
+                add_marker(f_map, friend_coord, create_popup(i))
+            else:
+                friend_coord = geoloc.random_coords()
+                add_marker(f_map, friend_coord, create_popup(i), status="NO")
         else:
             friend_coord = geoloc.random_coords()
-            add_marker(f_map, friend_coord, create_popup(i))
+            add_marker(f_map, friend_coord, create_popup(i), status="NO")
         add_line(f_map, [user_coords, friend_coord])
 
     f_map.save(path)
     return 0
-
-
-# generate_map("Lul.html", "elonmusk")

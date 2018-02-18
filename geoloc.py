@@ -25,7 +25,10 @@ def get_geo_position_ArcGIS(loc):
     """
     locator = ArcGIS(timeout=10)
     place = locator.geocode(loc)
-    return (place.latitude, place.longitude)
+    if not place:
+        return None
+    else:
+        return (place.latitude, place.longitude)
 
 
 def get_geo_position_google(loc, api_key):
