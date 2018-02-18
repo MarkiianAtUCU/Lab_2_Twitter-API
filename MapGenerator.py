@@ -37,32 +37,50 @@ def add_line(group, coord_list):
 
 
 def generate_map(path, acct):
+    x = 0
     f_map = folium.Map()
 
-    user = twitterAPI.json_get_user_info(acct)
-    num = user[3]
-
-    if user[0]:
-        user_coords = geoloc.get_geo_position_ArcGIS(user[0])
-        add_marker(f_map, user_coords, create_popup(user), status="POINT")
-    else:
-        user_coords = geoloc.random_coords()
-        add_marker(f_map, user_coords, create_popup(user), status="POINT")
+    num, user_coords, js = create_user_marker(acct)
+    add_marker(f_map, user_coords, js, status="POINT")
 
     friends = twitterAPI.json_get_user_friend_info(acct, num)
-    x = 0
+
     for i in friends:
-        if i[0]:
-            friend_coord = geoloc.get_geo_position_ArcGIS(i[0])
-            if friend_coord:
-                add_marker(f_map, friend_coord, create_popup(i))
-            else:
-                friend_coord = geoloc.random_coords()
-                add_marker(f_map, friend_coord, create_popup(i), status="NO")
-        else:
-            friend_coord = geoloc.random_coords()
-            add_marker(f_map, friend_coord, create_popup(i), status="NO")
+        x += 1
+        print(x)
+
+        friend_coord, js, status = create_friend_marker(i)
+        add_marker(f_map, friend_coord, js, status=status)
+
         add_line(f_map, [user_coords, friend_coord])
 
     f_map.save(path)
     return 0
+
+
+def create_user_marker(acct):
+    user = twitterAPI.json_get_user_info(acct)
+    friend_num = user[3]
+    if user[0]:
+        user_coords = geoloc.get_geo_position_ArcGIS(user[0])
+        if not user_coords:
+            user_coords = geoloc.random_coords()
+    else:
+        user_coords = geoloc.random_coords()
+    return friend_num, user_coords, create_popup(user)
+
+
+def create_friend_marker(js):
+    status = "OK"
+    if js[0]:
+        friend_coord = geoloc.get_geo_position_ArcGIS(js[0])
+        if not friend_coord:
+            status = "NO"
+            friend_coords = geoloc.random_coords()
+    else:
+        status = "NO"
+        friend_coord = geoloc.random_coords()
+    return friend_coord, create_popup(js), status
+
+
+generate_map("lul.html", "elonmusk")
