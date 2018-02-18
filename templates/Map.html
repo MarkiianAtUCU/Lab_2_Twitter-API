@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+<script>L_PREFER_CANVAS = false; L_NO_TOUCH = false; L_DISABLE_3D = false;</script>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css" rel="stylesheet"/>
+<link href="https://rawgit.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css" rel="stylesheet"/>
+<style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+<style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+<style> #map_cfc0df9d27604617ad945a46dfec894c {
+                position : relative;
+                width : 100.0%;
+                height: 100.0%;
+                left: 0.0%;
+                top: 0.0%;
+                }
+            </style>
+</head>
+<body>
+<div class="container-fluid" style="padding: 0">
+<div class="rows">
+<div class="col-md-11">
+<h3 class="text-muted">User: 
+                    <span style="color:black;font-weight: bold">{{User}}</span>
+</h3>
+</div>
+<div class="col-md-1" style="padding: 0">
+<a href="http://markiian.pythonanywhere.com/" style="float: right;">
+<button class="btn btn-lg btn-primary btn-block" id="btnSignUp" style="height: 57px" type="submit">Back!</button>
+</a>
+</div>
+</div>
+</div>
+<div class="folium-map" id="map_cfc0df9d27604617ad945a46dfec894c"></div>
+</body>
+<script>    
+    
+
+            
+                var bounds = null;
+            
+
+            var map_cfc0df9d27604617ad945a46dfec894c = L.map(
+                                  'map_cfc0df9d27604617ad945a46dfec894c',
+                                  {center: [0,0],
+                                  zoom: 1,
+                                  maxBounds: bounds,
+                                  layers: [],
+                                  worldCopyJump: false,
+                                  crs: L.CRS.EPSG3857
+                                 });
+            
+        
+    
+            var tile_layer_76708e7433ba405789bb7219df9f815e = L.tileLayer(
+                'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                {
+  "attribution": null,
+  "detectRetina": false,
+  "maxZoom": 18,
+  "minZoom": 1,
+  "noWrap": false,
+  "subdomains": "abc"
+}
+                ).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+        
+    
+
+            var marker_7a843557424f4736982e6901ea7d0efb = L.marker(
+                [84.14925194416165,78.1958740303978],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_f0d6447a63e5415d85ee62376b06fbeb = L.AwesomeMarkers.icon({
+                    icon: 'record',
+                    iconColor: 'white',
+                    markerColor: 'orange',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_7a843557424f4736982e6901ea7d0efb.setIcon(icon_f0d6447a63e5415d85ee62376b06fbeb);
+            
+    
+            var popup_2657b8a27b6c4c80a87a74bc16d3442c = L.popup({maxWidth: '300'});
+
+            
+                var html_acb002047f564c1d8bc14f304e37946a = $('<div id="html_acb002047f564c1d8bc14f304e37946a" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_normal.jpg"/><br>     Name: Elon Musk<br>     Location: <br>     Lang: en<br>     Friends: 47<br>     Followers: 19652718<br>     Created at: Tue Jun 02 20:12:29 +0000 2009<br>     </div>')[0];
+                popup_2657b8a27b6c4c80a87a74bc16d3442c.setContent(html_acb002047f564c1d8bc14f304e37946a);
+            
+
+            marker_7a843557424f4736982e6901ea7d0efb.bindPopup(popup_2657b8a27b6c4c80a87a74bc16d3442c);
+
+            
+        
+    
+
+            var marker_78b76caf88a246bb844d97fe94bb8b56 = L.marker(
+                [-35.12931987861408,-106.74294664741868],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_8cc7faf7741d4aa4860d2017bc423843 = L.AwesomeMarkers.icon({
+                    icon: 'record',
+                    iconColor: 'white',
+                    markerColor: 'orange',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_78b76caf88a246bb844d97fe94bb8b56.setIcon(icon_8cc7faf7741d4aa4860d2017bc423843);
+            
+    
+            var popup_cf33d7c074494998a468708b1016a243 = L.popup({maxWidth: '300'});
+
+            
+                var html_e6168f40a4734797bb3e1cab9d22c26d = $('<div id="html_e6168f40a4734797bb3e1cab9d22c26d" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/782474226020200448/zDo-gAo0_normal.jpg"/><br>     Name: Elon Musk<br>     Location: <br>     Lang: en<br>     Friends: 47<br>     Followers: 19652721<br>     Created at: Tue Jun 02 20:12:29 +0000 2009<br>     </div>')[0];
+                popup_cf33d7c074494998a468708b1016a243.setContent(html_e6168f40a4734797bb3e1cab9d22c26d);
+            
+
+            marker_78b76caf88a246bb844d97fe94bb8b56.bindPopup(popup_cf33d7c074494998a468708b1016a243);
+
+            
+        
+    
+
+            var marker_9b53ea380350456aa5bd457df70cee7c = L.marker(
+                [-47.67019216918905,-48.78962682665277],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_6eee8bf57bde489a86487fc3b7d16cbc = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_9b53ea380350456aa5bd457df70cee7c.setIcon(icon_6eee8bf57bde489a86487fc3b7d16cbc);
+            
+    
+            var popup_81c82b27bbae44b8ae39660c11d8f237 = L.popup({maxWidth: '300'});
+
+            
+                var html_90956146d2ec4fcab17fdb9f01a22260 = $('<div id="html_90956146d2ec4fcab17fdb9f01a22260" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/641822497457860608/zd6kUAag_normal.png"/><br>     Name: Fermat`s Library<br>     Location: <br>     Lang: en<br>     Friends: 27<br>     Followers: 79024<br>     Created at: Thu Sep 10 03:54:59 +0000 2015<br>     </div>')[0];
+                popup_81c82b27bbae44b8ae39660c11d8f237.setContent(html_90956146d2ec4fcab17fdb9f01a22260);
+            
+
+            marker_9b53ea380350456aa5bd457df70cee7c.bindPopup(popup_81c82b27bbae44b8ae39660c11d8f237);
+
+            
+        
+    
+                var poly_line_7cb7a3cfc8d843489a7ad64a610dd497 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [-47.67019216918905, -48.78962682665277]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_5fc697775a7d4d3c8f07362d692a048a = L.marker(
+                [32.77815000000004,-96.79539999999997],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_7cc6ed485a9b4803b813f141cee5ed3c = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5fc697775a7d4d3c8f07362d692a048a.setIcon(icon_7cc6ed485a9b4803b813f141cee5ed3c);
+            
+    
+            var popup_cc2e01054d694af48a1c8b02b38ae26c = L.popup({maxWidth: '300'});
+
+            
+                var html_344ca0810ed04af7b940641f11e72db8 = $('<div id="html_344ca0810ed04af7b940641f11e72db8" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/1106497789/aa_icon_option_2_normal.jpg"/><br>     Name: John Carmack<br>     Location: Dallas, TX<br>     Lang: en<br>     Friends: 170<br>     Followers: 848171<br>     Created at: Sat Aug 07 03:40:11 +0000 2010<br>     </div>')[0];
+                popup_cc2e01054d694af48a1c8b02b38ae26c.setContent(html_344ca0810ed04af7b940641f11e72db8);
+            
+
+            marker_5fc697775a7d4d3c8f07362d692a048a.bindPopup(popup_cc2e01054d694af48a1c8b02b38ae26c);
+
+            
+        
+    
+                var poly_line_401e38eed27e4c88b39fe0d1397d4264 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [32.77815000000004, -96.79539999999997]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_e41cf252cf9b4c0d89604acc8fbe8bb7 = L.marker(
+                [37.777120000000025,-122.41963999999996],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_ac596c32d7114c47a4aa8bd5e5cae17e = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e41cf252cf9b4c0d89604acc8fbe8bb7.setIcon(icon_ac596c32d7114c47a4aa8bd5e5cae17e);
+            
+    
+            var popup_0e481a726ab34696b6015a84bec1acac = L.popup({maxWidth: '300'});
+
+            
+                var html_927792079f8d4d9a99539cfb6f82011b = $('<div id="html_927792079f8d4d9a99539cfb6f82011b" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/848347394169294848/eRpJ_vCl_normal.jpg"/><br>     Name: Slashdot<br>     Location: San Francisco<br>     Lang: en<br>     Friends: 106<br>     Followers: 212032<br>     Created at: Tue Mar 13 04:57:07 +0000 2007<br>     </div>')[0];
+                popup_0e481a726ab34696b6015a84bec1acac.setContent(html_927792079f8d4d9a99539cfb6f82011b);
+            
+
+            marker_e41cf252cf9b4c0d89604acc8fbe8bb7.bindPopup(popup_0e481a726ab34696b6015a84bec1acac);
+
+            
+        
+    
+                var poly_line_5b12fa78f09b477c9dc6bfd305a090bd = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [37.777120000000025, -122.41963999999996]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_e656f1e4aaa94930821b66a1d49c3a0e = L.marker(
+                [51.50642000000005,-0.1272099999999341],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_8f643c7ef67c45149ebc53526d768384 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_e656f1e4aaa94930821b66a1d49c3a0e.setIcon(icon_8f643c7ef67c45149ebc53526d768384);
+            
+    
+            var popup_02879edaa6ec485497bdec97af1da2b7 = L.popup({maxWidth: '300'});
+
+            
+                var html_48012777a5334b7a996d9304b33191f6 = $('<div id="html_48012777a5334b7a996d9304b33191f6" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/526472073162403840/jjRBS--d_normal.jpeg"/><br>     Name: Talulah Riley<br>     Location: London, England<br>     Lang: en<br>     Friends: 385<br>     Followers: 25222<br>     Created at: Fri Jul 29 06:17:16 +0000 2011<br>     </div>')[0];
+                popup_02879edaa6ec485497bdec97af1da2b7.setContent(html_48012777a5334b7a996d9304b33191f6);
+            
+
+            marker_e656f1e4aaa94930821b66a1d49c3a0e.bindPopup(popup_02879edaa6ec485497bdec97af1da2b7);
+
+            
+        
+    
+                var poly_line_86d441237c3d4ef9963c93bf9fe2e30b = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [51.50642000000005, -0.1272099999999341]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_1ac0d4f765a445b8835ac2c978ece089 = L.marker(
+                [55.775000000000034,38.20026000000007],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_c65b2756707f40079d791342f85da04b = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_1ac0d4f765a445b8835ac2c978ece089.setIcon(icon_c65b2756707f40079d791342f85da04b);
+            
+    
+            var popup_d990ef3fa0a14a3f80b70ccc132a21eb = L.popup({maxWidth: '300'});
+
+            
+                var html_c2b15429b973479a99f254bf26742094 = $('<div id="html_c2b15429b973479a99f254bf26742094" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/938480777389490176/EztBb5X2_normal.jpg"/><br>     Name: Imgur<br>     Location: On the interwebs<br>     Lang: en<br>     Friends: 343<br>     Followers: 192414<br>     Created at: Thu Feb 11 02:17:35 +0000 2010<br>     </div>')[0];
+                popup_d990ef3fa0a14a3f80b70ccc132a21eb.setContent(html_c2b15429b973479a99f254bf26742094);
+            
+
+            marker_1ac0d4f765a445b8835ac2c978ece089.bindPopup(popup_d990ef3fa0a14a3f80b70ccc132a21eb);
+
+            
+        
+    
+                var poly_line_690a465185074158857171252129369a = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [55.775000000000034, 38.20026000000007]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_99afac46ac714a06b6b0c25485834876 = L.marker(
+                [51.89054004415608,-46.194612729672],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_74a4f3d11f9c4101b62753098e47e55b = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_99afac46ac714a06b6b0c25485834876.setIcon(icon_74a4f3d11f9c4101b62753098e47e55b);
+            
+    
+            var popup_d77c253faf034207afd23a2ef76fc1e2 = L.popup({maxWidth: '300'});
+
+            
+                var html_306bb5fd6c0740a08deada83d429cd56 = $('<div id="html_306bb5fd6c0740a08deada83d429cd56" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/897250392022540288/W1T-QjML_normal.jpg"/><br>     Name: Rick (((and Morty)))<br>     Location: <br>     Lang: en<br>     Friends: 201<br>     Followers: 1246645<br>     Created at: Tue Jul 31 23:17:58 +0000 2012<br>     </div>')[0];
+                popup_d77c253faf034207afd23a2ef76fc1e2.setContent(html_306bb5fd6c0740a08deada83d429cd56);
+            
+
+            marker_99afac46ac714a06b6b0c25485834876.bindPopup(popup_d77c253faf034207afd23a2ef76fc1e2);
+
+            
+        
+    
+                var poly_line_7790347c1b964d9cbad5066cff9410fa = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [51.89054004415608, -46.194612729672]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_79a1595ca5554c5fbe5937dd3a03e193 = L.marker(
+                [34.14745000000005,-118.14426999999995],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_aef9c60463ea4fbbb8ef142094afbfdd = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_79a1595ca5554c5fbe5937dd3a03e193.setIcon(icon_aef9c60463ea4fbbb8ef142094afbfdd);
+            
+    
+            var popup_0dc97b3960c04419a46f940742169dcc = L.popup({maxWidth: '300'});
+
+            
+                var html_8b4b61b9c6b04d5786068b753362a4b6 = $('<div id="html_8b4b61b9c6b04d5786068b753362a4b6" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/2305452633/lg0hov3l8g4msxbdwv48_normal.jpeg"/><br>     Name: NASA JPL<br>     Location: Pasadena, Calif.<br>     Lang: en<br>     Friends: 379<br>     Followers: 2558414<br>     Created at: Sat Jan 31 03:19:43 +0000 2009<br>     </div>')[0];
+                popup_0dc97b3960c04419a46f940742169dcc.setContent(html_8b4b61b9c6b04d5786068b753362a4b6);
+            
+
+            marker_79a1595ca5554c5fbe5937dd3a03e193.bindPopup(popup_0dc97b3960c04419a46f940742169dcc);
+
+            
+        
+    
+                var poly_line_364fdee218a949f9899da6d5c64c0ac7 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [34.14745000000005, -118.14426999999995]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_b08aaa28cb5e43e8ae93106b0773c16a = L.marker(
+                [37.211820000000046,-117.68646999999999],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_0cf5a8ca598343939139961e7e47d1ce = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b08aaa28cb5e43e8ae93106b0773c16a.setIcon(icon_0cf5a8ca598343939139961e7e47d1ce);
+            
+    
+            var popup_9670ba51becb4741af329223b0eebcfa = L.popup({maxWidth: '300'});
+
+            
+                var html_34d989e58a394289805e8622ed983cb0 = $('<div id="html_34d989e58a394289805e8622ed983cb0" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/2793288186/43e756fd0434d6ad43a8364b0e777239_normal.jpeg"/><br>     Name: Curiosity Rover<br>     Location: Gale Crater, Mars<br>     Lang: en<br>     Friends: 166<br>     Followers: 3925489<br>     Created at: Thu Jul 17 21:18:10 +0000 2008<br>     </div>')[0];
+                popup_9670ba51becb4741af329223b0eebcfa.setContent(html_34d989e58a394289805e8622ed983cb0);
+            
+
+            marker_b08aaa28cb5e43e8ae93106b0773c16a.bindPopup(popup_9670ba51becb4741af329223b0eebcfa);
+
+            
+        
+    
+                var poly_line_f5dc4c3c53b84a32acc41bf3e2f2d735 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [37.211820000000046, -117.68646999999999]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_8898190cb1084862bd7b065ef9bbfc73 = L.marker(
+                [34.23294000000004,-102.41019999999997],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_a8fdddaeba38487fb38ae427fc39e711 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_8898190cb1084862bd7b065ef9bbfc73.setIcon(icon_a8fdddaeba38487fb38ae427fc39e711);
+            
+    
+            var popup_cf1325de42024553a56c3c1d1a822b4e = L.popup({maxWidth: '300'});
+
+            
+                var html_b3f6d78171cf4e5bb610d7284aef5b53 = $('<div id="html_b3f6d78171cf4e5bb610d7284aef5b53" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/822552192875892737/zO1pmxzw_normal.jpg"/><br>     Name: Intl. Space Station<br>     Location: Low Earth Orbit<br>     Lang: en<br>     Friends: 230<br>     Followers: 2088532<br>     Created at: Thu May 23 15:25:28 +0000 2013<br>     </div>')[0];
+                popup_cf1325de42024553a56c3c1d1a822b4e.setContent(html_b3f6d78171cf4e5bb610d7284aef5b53);
+            
+
+            marker_8898190cb1084862bd7b065ef9bbfc73.bindPopup(popup_cf1325de42024553a56c3c1d1a822b4e);
+
+            
+        
+    
+                var poly_line_1cd8e1c367164e158fd7549027283536 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [34.23294000000004, -102.41019999999997]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_b7a685059c2e4b13ab39a4c2372d9247 = L.marker(
+                [25.592210000000023,75.59277000000003],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_619ae813235c472aa9d90ae3d9c42da5 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b7a685059c2e4b13ab39a4c2372d9247.setIcon(icon_619ae813235c472aa9d90ae3d9c42da5);
+            
+    
+            var popup_092170225c31477f8ee20da58941f0b3 = L.popup({maxWidth: '300'});
+
+            
+                var html_2fca84391b274669b1a5646cc2d98351 = $('<div id="html_2fca84391b274669b1a5646cc2d98351" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/502166591027433472/dSN8P3hG_normal.jpeg"/><br>     Name: How Things Work<br>     Location: email: how@viralspark.net<br>     Lang: en<br>     Friends: 1<br>     Followers: 404949<br>     Created at: Wed Nov 27 03:33:46 +0000 2013<br>     </div>')[0];
+                popup_092170225c31477f8ee20da58941f0b3.setContent(html_2fca84391b274669b1a5646cc2d98351);
+            
+
+            marker_b7a685059c2e4b13ab39a4c2372d9247.bindPopup(popup_092170225c31477f8ee20da58941f0b3);
+
+            
+        
+    
+                var poly_line_9e48f776cd3544689d7b9e2f395d048e = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [25.592210000000023, 75.59277000000003]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_be51aabfb6c04928b82e05af120fd1f6 = L.marker(
+                [34.05349000000007,-118.24531999999999],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_3a6fc3e2bea240099aeaf0ebf15cfebf = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_be51aabfb6c04928b82e05af120fd1f6.setIcon(icon_3a6fc3e2bea240099aeaf0ebf15cfebf);
+            
+    
+            var popup_0dc8d1b12c5c4577a7e2336f988a100d = L.popup({maxWidth: '300'});
+
+            
+                var html_3478837bc0264faabc5221eff6bbad23 = $('<div id="html_3478837bc0264faabc5221eff6bbad23" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/860520045797007360/anaFjL4S_normal.jpg"/><br>     Name: The Boring Company<br>     Location: Los Angeles, CA<br>     Lang: en<br>     Friends: 3<br>     Followers: 41723<br>     Created at: Wed May 03 17:06:17 +0000 2017<br>     </div>')[0];
+                popup_0dc8d1b12c5c4577a7e2336f988a100d.setContent(html_3478837bc0264faabc5221eff6bbad23);
+            
+
+            marker_be51aabfb6c04928b82e05af120fd1f6.bindPopup(popup_0dc8d1b12c5c4577a7e2336f988a100d);
+
+            
+        
+    
+                var poly_line_774f6bfb6227430db6da8289d0c3843c = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [34.05349000000007, -118.24531999999999]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_bb3bab60e56a43e9812654ae343f9576 = L.marker(
+                [39.39870315600007,-99.41461918999994],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_902ed29b908c4aacb90d41bc5edd3e22 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_bb3bab60e56a43e9812654ae343f9576.setIcon(icon_902ed29b908c4aacb90d41bc5edd3e22);
+            
+    
+            var popup_bdcf3ad56bf547cf8b8f0ef0b4c80279 = L.popup({maxWidth: '300'});
+
+            
+                var html_2a30c3b43369413b921d713af8c4181e = $('<div id="html_2a30c3b43369413b921d713af8c4181e" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/853347423795720193/k1iSXJuX_normal.jpg"/><br>     Name: Kimbal Musk<br>     Location: United States<br>     Lang: en<br>     Friends: 534<br>     Followers: 42237<br>     Created at: Sun Apr 15 15:13:54 +0000 2007<br>     </div>')[0];
+                popup_bdcf3ad56bf547cf8b8f0ef0b4c80279.setContent(html_2a30c3b43369413b921d713af8c4181e);
+            
+
+            marker_bb3bab60e56a43e9812654ae343f9576.bindPopup(popup_bdcf3ad56bf547cf8b8f0ef0b4c80279);
+
+            
+        
+    
+                var poly_line_b03d8f7ca0514a1983b2ca42a74454a5 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [39.39870315600007, -99.41461918999994]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_6aa3d569680a4f108dd6ed0fdb04fecf = L.marker(
+                [40.71455000000003,-74.00713999999994],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_f7d98035448b4aaf8e0dfad51424a3d1 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_6aa3d569680a4f108dd6ed0fdb04fecf.setIcon(icon_f7d98035448b4aaf8e0dfad51424a3d1);
+            
+    
+            var popup_5f7d144675b3452da27788cffbe2eb3f = L.popup({maxWidth: '300'});
+
+            
+                var html_d5c83adec55b4785837d79ad0417a3d0 = $('<div id="html_d5c83adec55b4785837d79ad0417a3d0" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/1866445064/and2disk_normal.jpg"/><br>     Name: World and Science<br>     Location: New York, NY<br>     Lang: en<br>     Friends: 8249<br>     Followers: 1587923<br>     Created at: Fri Mar 02 05:14:54 +0000 2012<br>     </div>')[0];
+                popup_5f7d144675b3452da27788cffbe2eb3f.setContent(html_d5c83adec55b4785837d79ad0417a3d0);
+            
+
+            marker_6aa3d569680a4f108dd6ed0fdb04fecf.bindPopup(popup_5f7d144675b3452da27788cffbe2eb3f);
+
+            
+        
+    
+                var poly_line_abbd69753e78473fa0d1a7dedcc35f1c = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [40.71455000000003, -74.00713999999994]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_5338653a7bc2472ea5d3ff89b33ddfb0 = L.marker(
+                [33.91819000000004,-118.35373999999996],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_998934fa1c514acf99912be92fde9304 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5338653a7bc2472ea5d3ff89b33ddfb0.setIcon(icon_998934fa1c514acf99912be92fde9304);
+            
+    
+            var popup_3901fdf3b1bd4a22966ca3866e67f67a = L.popup({maxWidth: '300'});
+
+            
+                var html_75714f761cf94b368b6661f9be09bc6d = $('<div id="html_75714f761cf94b368b6661f9be09bc6d" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/610467255348899840/Bn8klhkU_normal.jpg"/><br>     Name: Hyperloop<br>     Location: Hawthorne, CA<br>     Lang: en<br>     Friends: 86<br>     Followers: 93984<br>     Created at: Thu Aug 08 00:24:30 +0000 2013<br>     </div>')[0];
+                popup_3901fdf3b1bd4a22966ca3866e67f67a.setContent(html_75714f761cf94b368b6661f9be09bc6d);
+            
+
+            marker_5338653a7bc2472ea5d3ff89b33ddfb0.bindPopup(popup_3901fdf3b1bd4a22966ca3866e67f67a);
+
+            
+        
+    
+                var poly_line_5ffc24a0737a4a17be3dcc872353f6d0 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [33.91819000000004, -118.35373999999996]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_0c2126d89d3a46f6a05c04798ee2456a = L.marker(
+                [56.08549247628758,136.1394645008174],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_4d921f785d9e4010ad51d706a930f19b = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_0c2126d89d3a46f6a05c04798ee2456a.setIcon(icon_4d921f785d9e4010ad51d706a930f19b);
+            
+    
+            var popup_337991d85cf54929b1ae2b7516df322c = L.popup({maxWidth: '300'});
+
+            
+                var html_12d8a25a01444f5ab194145aefab2f49 = $('<div id="html_12d8a25a01444f5ab194145aefab2f49" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/1324543229/logo_normal.jpg"/><br>     Name: Medical Xpress<br>     Location: <br>     Lang: en<br>     Friends: 21<br>     Followers: 57683<br>     Created at: Mon Apr 25 07:40:20 +0000 2011<br>     </div>')[0];
+                popup_337991d85cf54929b1ae2b7516df322c.setContent(html_12d8a25a01444f5ab194145aefab2f49);
+            
+
+            marker_0c2126d89d3a46f6a05c04798ee2456a.bindPopup(popup_337991d85cf54929b1ae2b7516df322c);
+
+            
+        
+    
+                var poly_line_3dcedbf970f14dc083a7ac56458f1877 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [56.08549247628758, 136.1394645008174]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_2852d831d7f948a689e32af48c2235ba = L.marker(
+                [46.664208432048014,-29.235888262714987],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_eee5df09eab84490ad9b935cc24d71fd = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_2852d831d7f948a689e32af48c2235ba.setIcon(icon_eee5df09eab84490ad9b935cc24d71fd);
+            
+    
+            var popup_a1481d1b9bfe48689972837be708a451 = L.popup({maxWidth: '300'});
+
+            
+                var html_482c23e2be0c41278415105db75cafc9 = $('<div id="html_482c23e2be0c41278415105db75cafc9" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/935673375862620160/M9-GgfdC_normal.jpg"/><br>     Name: South Park<br>     Location: <br>     Lang: en<br>     Friends: 286<br>     Followers: 2902062<br>     Created at: Mon Mar 09 21:28:12 +0000 2009<br>     </div>')[0];
+                popup_a1481d1b9bfe48689972837be708a451.setContent(html_482c23e2be0c41278415105db75cafc9);
+            
+
+            marker_2852d831d7f948a689e32af48c2235ba.bindPopup(popup_a1481d1b9bfe48689972837be708a451);
+
+            
+        
+    
+                var poly_line_4dfd7cbe696c46e2900c6100701310e1 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [46.664208432048014, -29.235888262714987]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_49264939b3f04f40906d3b90524e7e14 = L.marker(
+                [49.48438006939237,0.1319399744648445],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_f9c8b1ed60d5476ca2e6f53590250671 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_49264939b3f04f40906d3b90524e7e14.setIcon(icon_f9c8b1ed60d5476ca2e6f53590250671);
+            
+    
+            var popup_18e68f99dae54607b06a12d5c1592f25 = L.popup({maxWidth: '300'});
+
+            
+                var html_c82987e8c261409b9032afdad20ac348 = $('<div id="html_c82987e8c261409b9032afdad20ac348" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/801508268895911936/hG5zHeyZ_normal.jpg"/><br>     Name: Tesla Motors Club<br>     Location: The World<br>     Lang: en<br>     Friends: 19<br>     Followers: 69445<br>     Created at: Wed Dec 17 21:44:26 +0000 2008<br>     </div>')[0];
+                popup_18e68f99dae54607b06a12d5c1592f25.setContent(html_c82987e8c261409b9032afdad20ac348);
+            
+
+            marker_49264939b3f04f40906d3b90524e7e14.bindPopup(popup_18e68f99dae54607b06a12d5c1592f25);
+
+            
+        
+    
+                var poly_line_c195040489d14e57a5cbc63443fcbfd0 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [49.48438006939237, 0.1319399744648445]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_5282040f79834c9f91ad564b4d3f6667 = L.marker(
+                [40.71455000000003,-74.00713999999994],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_24a996cfe8d94bf69fb1663e7d0aa9fc = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_5282040f79834c9f91ad564b4d3f6667.setIcon(icon_24a996cfe8d94bf69fb1663e7d0aa9fc);
+            
+    
+            var popup_d232dd35370d4079bdf5dadf21e6fa4b = L.popup({maxWidth: '300'});
+
+            
+                var html_893e3ca0f32e4309a4c44fa14cd50b7b = $('<div id="html_893e3ca0f32e4309a4c44fa14cd50b7b" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/676776763431620608/1eNZzxq0_normal.png"/><br>     Name: Scientific American<br>     Location: New York City, NY, USA<br>     Lang: en<br>     Friends: 511<br>     Followers: 3507785<br>     Created at: Sun May 04 12:39:32 +0000 2008<br>     </div>')[0];
+                popup_d232dd35370d4079bdf5dadf21e6fa4b.setContent(html_893e3ca0f32e4309a4c44fa14cd50b7b);
+            
+
+            marker_5282040f79834c9f91ad564b4d3f6667.bindPopup(popup_d232dd35370d4079bdf5dadf21e6fa4b);
+
+            
+        
+    
+                var poly_line_8231984b4fed449c8efa962d3f1b2ae9 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [40.71455000000003, -74.00713999999994]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_bf35a248c70f46cda9a2bad4b4742aff = L.marker(
+                [11.288710078996298,-11.730387265387506],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_fefbb8fe949b4a40aa57266406319861 = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_bf35a248c70f46cda9a2bad4b4742aff.setIcon(icon_fefbb8fe949b4a40aa57266406319861);
+            
+    
+            var popup_d80b0f01ce244202beb08a16fe5c40e9 = L.popup({maxWidth: '300'});
+
+            
+                var html_87233d5cad4e4ec8b0cbcedf44792048 = $('<div id="html_87233d5cad4e4ec8b0cbcedf44792048" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/925726499294011398/s2kPEKGx_normal.jpg"/><br>     Name: Kotaku<br>     Location: <br>     Lang: en<br>     Friends: 58<br>     Followers: 2077118<br>     Created at: Mon Jan 07 04:09:59 +0000 2008<br>     </div>')[0];
+                popup_d80b0f01ce244202beb08a16fe5c40e9.setContent(html_87233d5cad4e4ec8b0cbcedf44792048);
+            
+
+            marker_bf35a248c70f46cda9a2bad4b4742aff.bindPopup(popup_d80b0f01ce244202beb08a16fe5c40e9);
+
+            
+        
+    
+                var poly_line_49bfc84fc18e4003bd314b8de8b1ab40 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [11.288710078996298, -11.730387265387506]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_d1959c79e0324975be0ee1aef56a2c2a = L.marker(
+                [-86.13173481491002,104.58264839883192],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_2b6f23834da94ac0b2d6b4802dcf6de6 = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_d1959c79e0324975be0ee1aef56a2c2a.setIcon(icon_2b6f23834da94ac0b2d6b4802dcf6de6);
+            
+    
+            var popup_d1021cba089f4632824c65504452338c = L.popup({maxWidth: '300'});
+
+            
+                var html_9bd197ced431431392863d50076ef9fc = $('<div id="html_9bd197ced431431392863d50076ef9fc" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/844620470091624448/gngyjBD9_normal.jpg"/><br>     Name: OpenAI<br>     Location: <br>     Lang: en<br>     Friends: 0<br>     Followers: 215088<br>     Created at: Sun Dec 06 22:51:08 +0000 2015<br>     </div>')[0];
+                popup_d1021cba089f4632824c65504452338c.setContent(html_9bd197ced431431392863d50076ef9fc);
+            
+
+            marker_d1959c79e0324975be0ee1aef56a2c2a.bindPopup(popup_d1021cba089f4632824c65504452338c);
+
+            
+        
+    
+                var poly_line_9d734491b9d54c988afa6455df4a2580 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [-86.13173481491002, 104.58264839883192]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_ff69a2e776ab4d4b9d97b3378374ea4a = L.marker(
+                [-50.318693670641615,51.769861120586484],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_3880e8b6d6ce494bb731b7eae3ec7daf = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_ff69a2e776ab4d4b9d97b3378374ea4a.setIcon(icon_3880e8b6d6ce494bb731b7eae3ec7daf);
+            
+    
+            var popup_6827da1b6aca4a5cac1d65564aebabb3 = L.popup({maxWidth: '300'});
+
+            
+                var html_1139dc3094ed4ab7b779aeaee8d6cd14 = $('<div id="html_1139dc3094ed4ab7b779aeaee8d6cd14" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/723564356693192705/IV1fgh7G_normal.jpg"/><br>     Name: History In Pictures<br>     Location: <br>     Lang: en<br>     Friends: 270<br>     Followers: 4150957<br>     Created at: Wed Jul 10 11:00:47 +0000 2013<br>     </div>')[0];
+                popup_6827da1b6aca4a5cac1d65564aebabb3.setContent(html_1139dc3094ed4ab7b779aeaee8d6cd14);
+            
+
+            marker_ff69a2e776ab4d4b9d97b3378374ea4a.bindPopup(popup_6827da1b6aca4a5cac1d65564aebabb3);
+
+            
+        
+    
+                var poly_line_30d5b873fa0e40d0b323347cd62c1941 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [-50.318693670641615, 51.769861120586484]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_a314023cd6184f86ad8232619cc4b50a = L.marker(
+                [75.1582515286715,179.1753287972007],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_05fba30b4ca64edeaaba0e36b5a6fcac = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a314023cd6184f86ad8232619cc4b50a.setIcon(icon_05fba30b4ca64edeaaba0e36b5a6fcac);
+            
+    
+            var popup_9ffedaf6d2eb47909a414169f2d4b884 = L.popup({maxWidth: '300'});
+
+            
+                var html_41821788e72a44da887efbe41363548b = $('<div id="html_41821788e72a44da887efbe41363548b" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/432378841311358977/9Dw3NB7K_normal.jpeg"/><br>     Name: Plato On Book Tour<br>     Location: <br>     Lang: en<br>     Friends: 146<br>     Followers: 32899<br>     Created at: Wed Feb 05 20:30:05 +0000 2014<br>     </div>')[0];
+                popup_9ffedaf6d2eb47909a414169f2d4b884.setContent(html_41821788e72a44da887efbe41363548b);
+            
+
+            marker_a314023cd6184f86ad8232619cc4b50a.bindPopup(popup_9ffedaf6d2eb47909a414169f2d4b884);
+
+            
+        
+    
+                var poly_line_f2bc2c971a5642fa89d2d483cd4f8ca8 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [75.1582515286715, 179.1753287972007]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_b1c4c44309744bae9a5d001470211ff2 = L.marker(
+                [80.85848888555799,-18.135243549337524],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_8d57bf23f5ff45aca15c0716bffc80f7 = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_b1c4c44309744bae9a5d001470211ff2.setIcon(icon_8d57bf23f5ff45aca15c0716bffc80f7);
+            
+    
+            var popup_7c6f1e0fd21d4aa4a608e793ce08712b = L.popup({maxWidth: '300'});
+
+            
+                var html_7eb7e59be8e7469bb7eee1f603c04ced = $('<div id="html_7eb7e59be8e7469bb7eee1f603c04ced" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/188302352/nasalogo_twitter_normal.jpg"/><br>     Name: NASA<br>     Location: <br>     Lang: en<br>     Friends: 269<br>     Followers: 28503010<br>     Created at: Wed Dec 19 20:20:32 +0000 2007<br>     </div>')[0];
+                popup_7c6f1e0fd21d4aa4a608e793ce08712b.setContent(html_7eb7e59be8e7469bb7eee1f603c04ced);
+            
+
+            marker_b1c4c44309744bae9a5d001470211ff2.bindPopup(popup_7c6f1e0fd21d4aa4a608e793ce08712b);
+
+            
+        
+    
+                var poly_line_54076e8f6bf34d2aaac72cf98bb2b482 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [80.85848888555799, -18.135243549337524]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_443873113f5c49e79350c28a35a8df22 = L.marker(
+                [40.71455000000003,-74.00713999999994],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_dc156d1be3d74264bfa06645d92e43eb = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_443873113f5c49e79350c28a35a8df22.setIcon(icon_dc156d1be3d74264bfa06645d92e43eb);
+            
+    
+            var popup_b132e0590169472cbe9fe03cc554d856 = L.popup({maxWidth: '300'});
+
+            
+                var html_a8c01dc6c7d54953b30b2646dd323876 = $('<div id="html_a8c01dc6c7d54953b30b2646dd323876" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/877903823133704194/Mqp1PXU8_normal.jpg"/><br>     Name: The Verge<br>     Location: New York<br>     Lang: en<br>     Friends: 140<br>     Followers: 2410327<br>     Created at: Fri Apr 01 19:54:22 +0000 2011<br>     </div>')[0];
+                popup_b132e0590169472cbe9fe03cc554d856.setContent(html_a8c01dc6c7d54953b30b2646dd323876);
+            
+
+            marker_443873113f5c49e79350c28a35a8df22.bindPopup(popup_b132e0590169472cbe9fe03cc554d856);
+
+            
+        
+    
+                var poly_line_2e9f6b0c760f42898f28c9bbe72390af = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [40.71455000000003, -74.00713999999994]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_f04022169ef14876b9c37aab02c4b3f0 = L.marker(
+                [53.40838660500003,-1.9695595439999352],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_5714ab1683e346b8a8f304db33919f71 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_f04022169ef14876b9c37aab02c4b3f0.setIcon(icon_5714ab1683e346b8a8f304db33919f71);
+            
+    
+            var popup_df7792d2ca864839b8969aa7d00fe2aa = L.popup({maxWidth: '300'});
+
+            
+                var html_e4feac156d1a4938b77cda97b091daf6 = $('<div id="html_e4feac156d1a4938b77cda97b091daf6" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/962008179155484672/MIoPrV0c_normal.jpg"/><br>     Name: Develop<br>     Location: UK<br>     Lang: en<br>     Friends: 3218<br>     Followers: 51867<br>     Created at: Thu May 07 13:33:36 +0000 2009<br>     </div>')[0];
+                popup_df7792d2ca864839b8969aa7d00fe2aa.setContent(html_e4feac156d1a4938b77cda97b091daf6);
+            
+
+            marker_f04022169ef14876b9c37aab02c4b3f0.bindPopup(popup_df7792d2ca864839b8969aa7d00fe2aa);
+
+            
+        
+    
+                var poly_line_d04ba1b567714611b28d577396951d8d = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [53.40838660500003, -1.9695595439999352]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_909f9212c83c4bc28dda9e29d875d094 = L.marker(
+                [52.37827000000004,4.895360000000039],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_d044c04922f3474db69b81128af5a89b = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_909f9212c83c4bc28dda9e29d875d094.setIcon(icon_d044c04922f3474db69b81128af5a89b);
+            
+    
+            var popup_ea38571e6a584f738f9d87c974663fbc = L.popup({maxWidth: '300'});
+
+            
+                var html_df89d3e4605e4c61bbecc909e5d429ef = $('<div id="html_df89d3e4605e4c61bbecc909e5d429ef" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/723571201449295877/-KeG1OdO_normal.jpg"/><br>     Name: The Hacker News<br>     Location: The Internet 🌐<br>     Lang: en<br>     Friends: 2324<br>     Followers: 447144<br>     Created at: Fri Oct 29 23:55:25 +0000 2010<br>     </div>')[0];
+                popup_ea38571e6a584f738f9d87c974663fbc.setContent(html_df89d3e4605e4c61bbecc909e5d429ef);
+            
+
+            marker_909f9212c83c4bc28dda9e29d875d094.bindPopup(popup_ea38571e6a584f738f9d87c974663fbc);
+
+            
+        
+    
+                var poly_line_7ab559ef4f6e4a49a8ae8427009609b5 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [52.37827000000004, 4.895360000000039]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_a372ca9d544d47638ee65c6292595ac5 = L.marker(
+                [-2.452331320086689,-144.6896349842666],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_c5b677b7b4be4adf8db5d7117cb0f342 = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_a372ca9d544d47638ee65c6292595ac5.setIcon(icon_c5b677b7b4be4adf8db5d7117cb0f342);
+            
+    
+            var popup_91f7356f2a3844229076e6ba14399b7d = L.popup({maxWidth: '300'});
+
+            
+                var html_1f4de503c508486b900db70b3290fa2a = $('<div id="html_1f4de503c508486b900db70b3290fa2a" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/413359024617185280/pS8lVAWA_normal.png"/><br>     Name: XKCD Comic<br>     Location: <br>     Lang: en<br>     Friends: 1<br>     Followers: 141442<br>     Created at: Wed Dec 18 08:00:58 +0000 2013<br>     </div>')[0];
+                popup_91f7356f2a3844229076e6ba14399b7d.setContent(html_1f4de503c508486b900db70b3290fa2a);
+            
+
+            marker_a372ca9d544d47638ee65c6292595ac5.bindPopup(popup_91f7356f2a3844229076e6ba14399b7d);
+
+            
+        
+    
+                var poly_line_12ef6d843f054cad8c6866fec19b7173 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [-2.452331320086689, -144.6896349842666]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_bd7873dab6e64b1883bc6f94c3697a52 = L.marker(
+                [37.66588000000007,-91.84792999999996],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_5b5670b53a4f4fd788fe962cc765a308 = L.AwesomeMarkers.icon({
+                    icon: 'ok-circle',
+                    iconColor: 'white',
+                    markerColor: 'green',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_bd7873dab6e64b1883bc6f94c3697a52.setIcon(icon_5b5670b53a4f4fd788fe962cc765a308);
+            
+    
+            var popup_97bc916a78ac4574b09a44491c18d067 = L.popup({maxWidth: '300'});
+
+            
+                var html_453bdf73d026424aaab9f3e540d905a6 = $('<div id="html_453bdf73d026424aaab9f3e540d905a6" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/861608340899729410/J8SxzXcX_normal.jpg"/><br>     Name: Atlas Obscura<br>     Location: Everywhere<br>     Lang: en<br>     Friends: 3380<br>     Followers: 302820<br>     Created at: Wed Jul 15 15:33:08 +0000 2009<br>     </div>')[0];
+                popup_97bc916a78ac4574b09a44491c18d067.setContent(html_453bdf73d026424aaab9f3e540d905a6);
+            
+
+            marker_bd7873dab6e64b1883bc6f94c3697a52.bindPopup(popup_97bc916a78ac4574b09a44491c18d067);
+
+            
+        
+    
+                var poly_line_65aa807f6c054fe2bf083cbae6d45971 = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [37.66588000000007, -91.84792999999996]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_68d1f27b6cec47a2baa057f1288af889 = L.marker(
+                [20.49293643006793,-112.0104294459177],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_0a9b216b0d2a44f4b6e1f464e0d57e23 = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_68d1f27b6cec47a2baa057f1288af889.setIcon(icon_0a9b216b0d2a44f4b6e1f464e0d57e23);
+            
+    
+            var popup_8fdd524ec55241cb8e00ab33c02c5d65 = L.popup({maxWidth: '300'});
+
+            
+                var html_851170d533654ca09ea6496cd4261c1f = $('<div id="html_851170d533654ca09ea6496cd4261c1f" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/590508740010348544/eS1F7mN5_normal.png"/><br>     Name: Gizmodo<br>     Location: <br>     Lang: en<br>     Friends: 138<br>     Followers: 2902111<br>     Created at: Thu Mar 29 20:40:39 +0000 2007<br>     </div>')[0];
+                popup_8fdd524ec55241cb8e00ab33c02c5d65.setContent(html_851170d533654ca09ea6496cd4261c1f);
+            
+
+            marker_68d1f27b6cec47a2baa057f1288af889.bindPopup(popup_8fdd524ec55241cb8e00ab33c02c5d65);
+
+            
+        
+    
+                var poly_line_616cf3ca3d924c828e9b37a9293aaeae = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [20.49293643006793, -112.0104294459177]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+            var marker_c472f75498d5462cb47a72ab1412837e = L.marker(
+                [5.579898275472525,23.940080711673023],
+                {
+                    icon: new L.Icon.Default()
+                    }
+                )
+                .addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+    
+
+                var icon_ba3fef92f792464ba8d5f2298013f99f = L.AwesomeMarkers.icon({
+                    icon: 'remove-circle',
+                    iconColor: 'white',
+                    markerColor: 'red',
+                    prefix: 'glyphicon',
+                    extraClasses: 'fa-rotate-0'
+                    });
+                marker_c472f75498d5462cb47a72ab1412837e.setIcon(icon_ba3fef92f792464ba8d5f2298013f99f);
+            
+    
+            var popup_9c3aa4cdb5ac4ed4857976a2d0d1c84c = L.popup({maxWidth: '300'});
+
+            
+                var html_7c856c8203ec42baa71c86ee58a8b9b7 = $('<div id="html_7c856c8203ec42baa71c86ee58a8b9b7" style="width: 100.0%; height: 100.0%;"><img src="https://pbs.twimg.com/profile_images/378800000096549990/2b5b8a614e16b1527ebb75e1a7266d85_normal.jpeg"/><br>     Name: Tim Urban<br>     Location: <br>     Lang: en<br>     Friends: 496<br>     Followers: 161167<br>     Created at: Wed Mar 20 02:43:48 +0000 2013<br>     </div>')[0];
+                popup_9c3aa4cdb5ac4ed4857976a2d0d1c84c.setContent(html_7c856c8203ec42baa71c86ee58a8b9b7);
+            
+
+            marker_c472f75498d5462cb47a72ab1412837e.bindPopup(popup_9c3aa4cdb5ac4ed4857976a2d0d1c84c);
+
+            
+        
+    
+                var poly_line_1daa0ae6a10f4f35bc30aa75cb35977a = L.polyline(
+                    [[-35.12931987861408, -106.74294664741868], [5.579898275472525, 23.940080711673023]],
+                    {
+  "bubblingMouseEvents": true,
+  "color": "#3388ff",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": false,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "lineCap": "round",
+  "lineJoin": "round",
+  "noClip": false,
+  "opacity": 1.0,
+  "smoothFactor": 1.0,
+  "stroke": true,
+  "weight": 2
+}).addTo(map_cfc0df9d27604617ad945a46dfec894c);
+            
+</script>
