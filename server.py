@@ -28,12 +28,10 @@ def submit_render():
     global user_coords
     global js
     global f_map
-    global x
-    if not x:
+    global x 
         # find user
-        friend_num, user_coords, js = MapGenerator.create_user_marker(name)
-        MapGenerator.add_marker(f_map, user_coords, js, status="POINT")
-        x = True
+    friend_num, user_coords, js = MapGenerator.create_user_marker(name)
+    MapGenerator.add_marker(f_map, user_coords, js, status="POINT")
     return render_template('submit.html', maximum=str(friend_num),
                            Num=str(friend_num), User="@"+name)
 
