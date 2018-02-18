@@ -6,7 +6,9 @@ import twitterAPI
 
 def add_marker(group, coords, name, status="OK"):
     """
-    (FeatureGroup, [latitude, longitude], str) -> None
+    (FeatureGroup, [latitude, longitude], status="OK") -> None
+                                                  "POINT"
+                                                  "NO"
 
     Function adds folium marker to folium.FeatureGroup() or folium.Map()
     """
@@ -21,6 +23,10 @@ def add_marker(group, coords, name, status="OK"):
 
 
 def create_popup(js):
+    """
+    (dict) -> str
+    Function returns info from json dictionary in formatted html tags view
+    """
     res = """<img src="{}"/><br>
     Name: {}<br>
     Location: {}<br>
@@ -33,32 +39,20 @@ def create_popup(js):
 
 
 def add_line(group, coord_list):
+    """
+    (FeatureGroup, ([latitude, longitude], [latitude, longitude])
+
+    Function adds folium line to folium.FeatureGroup() or folium.Map()
+    """
     folium.PolyLine(locations=coord_list, weight=2).add_to(group)
 
 
-def generate_map(path, acct):
-    x = 0
-    f_map = folium.Map()
-
-    num, user_coords, js = create_user_marker(acct)
-    add_marker(f_map, user_coords, js, status="POINT")
-
-    friends = twitterAPI.json_get_user_friend_info(acct, num)
-
-    for i in friends:
-        x += 1
-        print(x)
-
-        friend_coord, js, status = create_friend_marker(i)
-        add_marker(f_map, friend_coord, js, status=status)
-
-        add_line(f_map, [user_coords, friend_coord])
-
-    f_map.save(path)
-    return 0
-
-
 def create_user_marker(acct):
+    """
+    (str) -> (int, [latitude, longitude], str)
+
+    Function returns location, friends number and info about twitter user
+    """
     user = twitterAPI.json_get_user_info(acct)
     friend_num = user[3]
     if user[0]:
@@ -71,6 +65,14 @@ def create_user_marker(acct):
 
 
 def create_friend_marker(js):
+    """
+    (str) -> (int, [latitude, longitude], str)
+
+    Function returns location, friends number and info about twitter user
+    and type of marker:
+                        "OK" - found location
+                        "NO" - did not find location
+    """
     status = "OK"
     if js[0]:
         friend_coord = geoloc.get_geo_position_ArcGIS(js[0])
@@ -81,6 +83,3 @@ def create_friend_marker(js):
         status = "NO"
         friend_coord = geoloc.random_coords()
     return friend_coord, create_popup(js), status
-
-
-generate_map("lul.html", "elonmusk")

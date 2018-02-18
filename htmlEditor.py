@@ -20,6 +20,11 @@ header = """
 
 
 def edit_map(path, header):
+    """
+    (str, str) -> None
+
+    Function adds header to Html file
+    """
     with open(path, "r") as file:
         lul = file.read()
 

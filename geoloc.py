@@ -42,6 +42,11 @@ def get_geo_position_google(loc, api_key):
     return g.latlng
 
 def random_coords():
+    """
+    (None) -> tuple
+
+    Function generates random latitude and longitude
+    """
     latitude = random.randint(-90, 90)+random.uniform(0, 1)
     longitude = random.randint(-180, 180)+random.uniform(0, 1)
     return (latitude,longitude)

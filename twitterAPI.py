@@ -16,6 +16,11 @@ ctx.verify_mode = ssl.CERT_NONE
 
 
 def get_user_json(acct):
+    """
+    (str) -> dict
+
+    Function gets info about user from twitter
+    """
     TWITTER_URL = 'https://api.twitter.com/1.1/statuses/user_timeline.json'
     url = twurl.augment(TWITTER_URL,
                         {'screen_name': acct, 'count': '1'})
@@ -26,6 +31,11 @@ def get_user_json(acct):
 
 
 def get_user_friends_json(acct, num):
+    """
+    (str, int) -> dict
+    
+    Function gets info about defined amount of users friends from twitter
+    """
     TWITTER_URL = 'https://api.twitter.com/1.1/friends/list.json'
     url = twurl.augment(TWITTER_URL,
                         {'screen_name': acct, 'count': str(num)})
@@ -36,6 +46,17 @@ def get_user_friends_json(acct, num):
 
 
 def json_get_user_info(acct):
+    """
+    (str) -> tuple
+
+    Function returns info about user: location
+                                      profile image url
+                                      name
+                                      friend number
+                                      follower number
+                                      date of creation
+                                      language
+    """
     js = get_user_json(acct)
     return (js[0]['user']['location'],
             js[0]['user']['profile_image_url_https'],
@@ -47,6 +68,17 @@ def json_get_user_info(acct):
 
 
 def json_get_user_friend_info(acct, num):
+    """
+    (str) -> tuple
+
+    Function returns info about users friend: location
+                                              profile image url
+                                              name
+                                              friend number
+                                              follower number
+                                              date of creation
+                                              language
+    """
     js = get_user_friends_json(acct, num)
     res = []
     for i in range(num):
